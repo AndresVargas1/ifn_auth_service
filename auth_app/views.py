@@ -49,11 +49,11 @@ class LoginUsuarioView(APIView):
                 status=status.HTTP_401_UNAUTHORIZED
             )
 
-        if user["fecha_fin_jwt"] and (user["fecha_fin_jwt"] > user["fecha_creacion_jwt"]):
-            return Response(
-                {"error": "El usuario ya tiene una sesión activa"},
-                status=status.HTTP_401_UNAUTHORIZED
-            )
+        # if user["fecha_fin_jwt"] and (user["fecha_fin_jwt"] > user["fecha_creacion_jwt"]):
+        #     return Response(
+        #         {"error": "El usuario ya tiene una sesión activa"},
+        #         status=status.HTTP_401_UNAUTHORIZED
+        #     )
         ahora = datetime.utcnow()
         fin = ahora + timedelta(hours=2)
 
